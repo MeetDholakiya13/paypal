@@ -8,14 +8,25 @@ return actions.subscription.create({
 });
 };
 const paypalOnError = (err) => {
-console.log("Error")
+
+
 
 return window.ReactNativeWebView &&
-window.ReactNativeWebView.postMessage(
-  JSON.stringify({ data:"", status: err })
-);
+    window.ReactNativeWebView.postMessage(
+      JSON.stringify({ data:err, status: "error" })
+    );
 
 }
+const paypalOnCancel = (err) => {
+
+
+    
+    return window.ReactNativeWebView &&
+    window.ReactNativeWebView.postMessage(
+      JSON.stringify({ data:err, status: "cancel" })
+    );
+    
+    }
 const paypalOnApprove = (data, detail) => {
 // call the backend api to store transaction details
 
@@ -35,7 +46,7 @@ createSubscription={paypalSubscribe}
 onApprove={paypalOnApprove}
 catchError={paypalOnError}
 onError={paypalOnError}
-onCancel={paypalOnError}
+onCancel={paypalOnCancel}
 />
 </div>
 );

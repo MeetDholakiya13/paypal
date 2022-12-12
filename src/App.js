@@ -9,7 +9,7 @@ return actions.subscription.create({
 };
 const paypalOnError = (err) => {
 
-console.log('err :>> ', err);
+
 
 return window.ReactNativeWebView &&
 window.ReactNativeWebView.postMessage(
@@ -20,7 +20,7 @@ window.ReactNativeWebView.postMessage(
 const paypalOnCancel = (err) => {
 
 
-    console.log('err cancel :>> ', err);
+ 
    return window.ReactNativeWebView &&
     window.ReactNativeWebView.postMessage(
       JSON.stringify({ status: "cancel" })

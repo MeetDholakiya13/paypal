@@ -9,13 +9,19 @@ return actions.subscription.create({
 };
 const paypalOnError = (err) => {
 console.log("Error")
+
+return window.ReactNativeWebView &&
+window.ReactNativeWebView.postMessage(
+  JSON.stringify({ data:"", status: err })
+);
+
 }
 const paypalOnApprove = (data, detail) => {
 // call the backend api to store transaction details
 
  return window.ReactNativeWebView &&
 window.ReactNativeWebView.postMessage(
-  JSON.stringify({ data: data, status: data.status , })
+  JSON.stringify({ data: data, status: "sucess" })
 );
 
 };

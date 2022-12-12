@@ -9,21 +9,21 @@ return actions.subscription.create({
 };
 const paypalOnError = (err) => {
 
-
+console.log('err :>> ', err);
 
 return window.ReactNativeWebView &&
-    window.ReactNativeWebView.postMessage(
-      JSON.stringify({ data:err, status: "error" })
-    );
+window.ReactNativeWebView.postMessage(
+  JSON.stringify({ status: "cancel" })
+);
 
 }
 const paypalOnCancel = (err) => {
 
 
-    
-    return window.ReactNativeWebView &&
+    console.log('err cancel :>> ', err);
+   return window.ReactNativeWebView &&
     window.ReactNativeWebView.postMessage(
-      JSON.stringify({ data:err, status: "cancel" })
+      JSON.stringify({ status: "cancel" })
     );
     
     }

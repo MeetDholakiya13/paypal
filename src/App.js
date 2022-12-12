@@ -13,7 +13,7 @@ const paypalOnError = (err) => {
 
 return window.ReactNativeWebView &&
 window.ReactNativeWebView.postMessage(
-  JSON.stringify({ status: "cancel" })
+  JSON.stringify({ status: "Error" })
 );
 
 }

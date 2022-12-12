@@ -12,8 +12,7 @@ console.log("Error")
 }
 const paypalOnApprove = (data, detail) => {
 // call the backend api to store transaction details
-console.log("Payapl approved")
-console.log("data :>>",data)
+
 const details={
     "data": {
       "facilitatorAccessToken": data.facilitatorAccessToken,
@@ -23,7 +22,7 @@ const details={
     },
     "status": data.status
   }
-  console.warn(details)
+ 
   return details;
 
 };

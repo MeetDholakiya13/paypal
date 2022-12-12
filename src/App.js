@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from './120.png'
 import './App.css';
 import PayPalBtn from './components/PayPalBtn'
 const paypalSubscribe = (data, actions) => {
@@ -39,6 +39,10 @@ window.ReactNativeWebView.postMessage(
 function App() {
 return (
 <div className="App">
+  <div className='main'>
+<div style={{widt:"100%",margin:"auto"}} ><img src={logo} alt="logo"/></div>
+<div className='btn-paypal'>
+
 <PayPalBtn
 amount = "5"
 currency = "USD"
@@ -47,7 +51,10 @@ onApprove={paypalOnApprove}
 catchError={paypalOnError}
 onError={paypalOnError}
 onCancel={paypalOnCancel}
+
 />
+</div>
+</div>
 </div>
 );
 }

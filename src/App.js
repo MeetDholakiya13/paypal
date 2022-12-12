@@ -15,7 +15,7 @@ const paypalOnApprove = (data, detail) => {
 
  return window.ReactNativeWebView &&
 window.ReactNativeWebView.postMessage(
-  JSON.stringify({ data: data, status: "sucess" })
+  JSON.stringify({ data: data, status: data.status , })
 );
 
 };

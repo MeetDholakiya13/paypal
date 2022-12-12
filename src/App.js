@@ -13,17 +13,10 @@ console.log("Error")
 const paypalOnApprove = (data, detail) => {
 // call the backend api to store transaction details
 
-const details={
-    "data": {
-      "facilitatorAccessToken": data.facilitatorAccessToken,
-      "orderID": data.orderID,
-      "paymentSource": data.paymentSource,
-      "subscriptionID": data.subscriptionID,
-    },
-    "status": data.status
-  }
- 
-  return details;
+ return window.ReactNativeWebView &&
+window.ReactNativeWebView.postMessage(
+  JSON.stringify({ data: data, status: "sucess" })
+);
 
 };
 function App() {
